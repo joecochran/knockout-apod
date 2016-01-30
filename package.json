@@ -17,6 +17,22 @@
   },
   "homepage": "https://github.com/joecochran/knockout-apod#readme",
   "dependencies": {
-    "knockout": "^3.4.0"
+    "knockout": "^3.4.0",
+    "normalize.css": "^3.0.3"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.3.1",
+    "grunt": "^0.4.5",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-connect": "^0.11.2",
+    "grunt-contrib-cssmin": "^0.14.0",
+    "grunt-contrib-htmlmin": "^0.6.0",
+    "grunt-contrib-imagemin": "^1.0.0",
+    "grunt-contrib-less": "^1.1.0",
+    "grunt-contrib-uglify": "^0.11.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-newer": "^1.1.1",
+    "grunt-postcss": "^0.7.1",
+    "jit-grunt": "^0.9.1"
   }
 }
