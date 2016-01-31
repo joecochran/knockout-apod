@@ -9954,3 +9954,14 @@ b.nodes():null)return a.a.V(c.cloneNode(!0).childNodes);b=b.text();return a.a.ma
 k||(k=b.text()||"",k=v.template(null,"{{ko_with $item.koBindingContext}}"+k+"{{/ko_with}}"),b.data("precompiled",k));b=[e.$data];e=v.extend({koBindingContext:e},f.templateOptions);e=v.tmpl(k,b,e);e.appendTo(g.createElement("div"));v.fragments={};return e};this.createJavaScriptEvaluatorBlock=function(a){return"{{ko_code ((function() { return "+a+" })()) }}"};this.addTemplate=function(a,b){u.write("<script type='text/html' id='"+a+"'>"+b+"\x3c/script>")};0<a&&(v.tmpl.tag.ko_code={open:"__.push($1 || '');"},
 v.tmpl.tag.ko_with={open:"with($1) {",close:"} "})};a.vb.prototype=new a.O;var b=new a.vb;0<b.$c&&a.Db(b);a.b("jqueryTmplTemplateEngine",a.vb)})()})})();})();
 
+// 1. handle routing
+    // '/' & '#/today'
+        // basic api call of the latest
+        // GET https://api.nasa.gov/planetary/apod
+    // '#/yyyy/mm/dd'
+        // get api for a certain date
+        // https://api.nasa.gov/planetary/apod?date=YYYY-MM-DD
+        // if only year, go to Jan 1 of that year
+        // if only year and month, go to the first of that month
+
+
