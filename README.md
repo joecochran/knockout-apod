@@ -1,12 +1,12 @@
 # Knockout-APOD
-[APOD](http://apod.nasa.gov/apod/astropix.html) (Astronomy Photo of the Day) Viewer made with [knockout.js](http://knockoutjs.com).
+[APOD](http://apod.nasa.gov/apod/astropix.html) (Astronomy Photo of the Day) Viewer made with [knockout.js](http://knockoutjs.com). Here's a [demo](http://joecochran.sdf.org/demos/knockout-apod/).
 
 ## Requirements
 - npm
 - grunt
 
 ## Installation
-1. `git clone git@github.com:joecochran/homework.git`
+1. `git clone git@github.com:joecochran/knockout-apod.git`
 2. Grunt should be installed globally, so run `npm install -g grunt-cli`
 3. Once Grunt is installed, install node_modules with `npm install`
 4. Compile all assets in `src/` by running `grunt`
