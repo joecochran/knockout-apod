@@ -20,6 +20,9 @@ body {
 .photo__image {
   margin: 0;
 }
+.photo__explanation {
+  margin-top: 1em;
+}
 .photo__title {
   font-family: 'Bitter', serif;
 }
@@ -74,4 +77,9 @@ body {
   background-image: '';
   color: rgba(0, 0, 0, 0.9);
   box-shadow: 0 0 0 1px transparent inset,none;
+}
+.menu__button:disabled {
+  color: rgba(0, 0, 0, 0.3);
+  background-color: #cacbcd;
+  opacity: .9;
 }

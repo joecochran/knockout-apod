@@ -46,6 +46,7 @@ module.exports = function(grunt) {
             dist: {
                 src: [
                     'node_modules/jquery/dist/jquery.js',
+                    'node_modules/sammy/lib/sammy.js',
                     'node_modules/knockout/build/output/knockout-latest.js',
                     'src/js/main.js'
                 ],
