@@ -12121,17 +12121,10 @@ v.tmpl.tag.ko_with={open:"with($1) {",close:"} "})};a.vb.prototype=new a.O;var b
         // if only year, go to Jan 1 of that year
         // if only year and month, go to the first of that month
 
-// function apod(data) {
-//     this.copyright = ko.observable();
-//     this.date = ko.observable();
-//     this.explanation = ko.observable();
-//     this.url = ko.observable();
-//     this.title = ko.observable();
-//     this.mediaType = ko.observable();
-// }
-
 function ApodViewModel() {
     var self = this;
+
+    self.key = 'DEMO_KEY';
 
     self.copyright = ko.observable();
     self.date = ko.observable();
@@ -12140,15 +12133,8 @@ function ApodViewModel() {
     self.title = ko.observable();
     self.mediaType = ko.observable();
 
-    // compute the day before
-
-    //compute the day after
-    self.nextDate = ko.computed(function(){
-        return true;
-    });
-
     self.getLatest = function() {
-        $.getJSON('https://api.nasa.gov/planetary/apod?api_key=gmTH7lAYpfdU5nKs3qqQXOND8WimG1qLpshtcoxg', function(data){
+        $.getJSON('https://api.nasa.gov/planetary/apod?api_key=' + self.key, function(data){
             self.copyright(data.copyright);
             self.date(data.date);
             self.explanation(data.explanation);
@@ -12157,6 +12143,9 @@ function ApodViewModel() {
             self.mediaType(data.media_type);
         });
     }
+    self.prettyDate = ko.computed(function() {
+        
+    });
     self.prevDate = ko.computed(function(){
         var dateString = self.date();
         if (typeof dateString == "string") {
@@ -12169,7 +12158,6 @@ function ApodViewModel() {
             return yyyy + '-' + (mm[1]?mm:"0"+mm[0]) + '-' + (dd[1]?dd:"0"+dd[0]);
         }
         return false;
-        // var date = new Date();
     });
     self.nextDate = ko.computed(function(){
         var dateString = self.date();
@@ -12188,7 +12176,7 @@ function ApodViewModel() {
         return false;
     });
     self.getPrevious = function() {
-        $.getJSON('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY' + '&date=' + self.prevDate(), function(data){
+        $.getJSON('https://api.nasa.gov/planetary/apod?api_key=' + self.key + '&date=' + self.prevDate(), function(data){
             self.copyright(data.copyright);
             self.date(data.date);
             self.explanation(data.explanation);
@@ -12198,7 +12186,7 @@ function ApodViewModel() {
         });
     }
     self.getNext = function() {
-        $.getJSON('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY' + '&date=' + self.nextDate(), function(data){
+        $.getJSON('https://api.nasa.gov/planetary/apod?api_key=' + self.key + '&date=' + self.nextDate(), function(data){
             self.copyright(data.copyright);
             self.date(data.date);
             self.explanation(data.explanation);
