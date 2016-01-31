@@ -11,7 +11,7 @@
     "url": "git+https://github.com/joecochran/knockout-apod.git"
   },
   "author": "Joe Cochran",
-  "license": "BSD-2-Clause",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/joecochran/knockout-apod/issues"
   },
