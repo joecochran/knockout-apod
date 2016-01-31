@@ -9964,4 +9964,11 @@ v.tmpl.tag.ko_with={open:"with($1) {",close:"} "})};a.vb.prototype=new a.O;var b
         // if only year, go to Jan 1 of that year
         // if only year and month, go to the first of that month
 
-
+function apod(data) {
+    this.copyright = ko.observable();
+    this.date = ko.observable();
+    this.explanation = ko.observable();
+    this.url = ko.observable();
+    this.title = ko.observable();
+    this.mediaType = ko.observable();
+}
