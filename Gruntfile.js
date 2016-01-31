@@ -47,7 +47,6 @@ module.exports = function(grunt) {
                 src: [
                     'node_modules/jquery/dist/jquery.js',
                     'node_modules/knockout/build/output/knockout-latest.js',
-                    'node_modules/knockout.mapping/knockout.mapping.js',
                     'src/js/main.js'
                 ],
                 dest: 'dist/js/app.js'
