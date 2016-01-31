@@ -2,10 +2,6 @@
   "name": "knockout-apod",
   "version": "1.0.0",
   "description": "APOD (Astronomy Photo of the Day) Viewer made with knockout.js.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/joecochran/knockout-apod.git"
