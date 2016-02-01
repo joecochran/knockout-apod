@@ -36,3 +36,4 @@ Session.vim
 *~
 
 node_modules/
+dist/
