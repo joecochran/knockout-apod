@@ -14,10 +14,24 @@
         <header>
             <nav class="menu">
                 <ul class="menu__list">
-                    <li class="menu__item"><button type="button" class="menu__button" data-bind="click: getPrevious">Previous</button></li>
-                    <li class="menu__item"><button type="button" class="menu__button" data-bind="click: getNext, enable: nextDate">Next</button></li>
-                    <li class="menu__item"><button type="button" class="menu__button" data-bind="click: getLatest">Latest</button></li>
-                    <li class="menu__item"><button type="button" class="menu__button" disabled>Random</button></li>
+                    <li class="menu__item">
+                        <button type="button" 
+                                class="menu__button" 
+                                data-bind="click: getDate.bind($data, prevDate())">Previous</button>
+                    </li>
+                    <li class="menu__item">
+                        <button type="button" 
+                                class="menu__button" 
+                                data-bind="click: getDate.bind($data, nextDate()), enable: nextDate">Next</button>
+                    </li>
+                    <li class="menu__item">
+                        <button type="button"
+                                class="menu__button" 
+                                data-bind="click: getDate.bind($data, latest), enable: nextDate">Latest</button>
+                    </li>
+                    <li class="menu__item">
+                        <button type="button" class="menu__button" disabled>Random</button>
+                    </li>
                 </ul>
             </nav>
         </header>
@@ -25,7 +39,7 @@
         <main role="main">
         <article class="photo">
             <h1 class="photo__title" data-bind="text: title"></h1>
-            <div class="photo__date" data-bind="text: date"></div>
+            <div class="photo__date" data-bind="text: prettyDate"></div>
             <figure class="photo__image">
                 <img src="" alt="" data-bind="attr: { src: url }">
                 <figcaption class="photo__explanation" data-bind="text: explanation"></figcaption>
