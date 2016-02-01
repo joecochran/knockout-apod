@@ -13,6 +13,12 @@ function apodDate(date) {
     var dd = date.getDate().toString();
     return yyyy + '-' + (mm[1]?mm:"0"+mm[0]) + '-' + (dd[1]?dd:"0"+dd[0]);
 }
+function randomDate(start, end, startHour, endHour) {
+  var date = new Date(+start + Math.random() * (end - start));
+  var hour = startHour + Math.random() * (endHour - startHour) | 0;
+  date.setHours(hour);
+  return date;
+}
 function ApodViewModel() {
     var self = this;
 
@@ -55,6 +61,13 @@ function ApodViewModel() {
             self.title(data.title);
             self.mediaType(data.media_type);
         });
+    }
+    self.getRandom = function() {
+        // return a date between 1995-09-22 and today. 
+		var start = new Date('1995/09/22');
+		var date = randomDate(start, new Date(), 0, 0);
+		self.getDate(apodDate(date));
+        // check for 500 error (which wil
     }
     
     // get the most recent one right away
