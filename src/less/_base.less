@@ -3,7 +3,9 @@ html {
     box-sizing: border-box;
     font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
 }
-*, *:before, *:after {
+*, 
+*:before,
+*:after {
     box-sizing: inherit;
 }
 
@@ -15,4 +17,23 @@ img {
 //full width and height body
 body {
     margin: 0;
+}
+* {
+    margin:0;
+    padding:0;
+} 
+html,
+body {
+    height: 100%;
+}
+
+a {
+    color: #4183c4;
+    border-bottom: 1px solid transparent;
+    text-decoration: none;
+    transition: color 300ms, border-bottom 300ms;
+    &:hover {
+        border-bottom: 1px solid #1e70bf;
+        color: #1e70bf;
+    }
 }

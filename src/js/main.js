@@ -15,7 +15,7 @@ function apodDate(date) {
 }
 function randomDate(start, end, startHour, endHour) {
   var date = new Date(+start + Math.random() * (end - start));
-  var hour = startHour + Math.random() * (endHour - startHour) | 0;
+  var hour = 0;
   date.setHours(hour);
   return date;
 }
@@ -30,6 +30,7 @@ function ApodViewModel() {
     self.url = ko.observable();
     self.title = ko.observable();
     self.mediaType = ko.observable();
+    self.dataLoaded = ko.observable(false);
     
     self.prettyDate = ko.computed(function() {
         if (self.date() instanceof Date) {
@@ -53,6 +54,7 @@ function ApodViewModel() {
     self.latest = apodDate(new Date());
 
     self.getDate = function(date) {
+        self.dataLoaded(false);
         $.getJSON('https://api.nasa.gov/planetary/apod?api_key=' + self.key + '&date=' + date, function(data){
             self.copyright(data.copyright);
             self.date( new Date(data.date.split('-').join('/')));
@@ -60,6 +62,9 @@ function ApodViewModel() {
             self.url(data.url);
             self.title(data.title);
             self.mediaType(data.media_type);
+            setTimeout(function(){
+                self.dataLoaded(true);
+            }, 500);
         });
     }
     self.getRandom = function() {

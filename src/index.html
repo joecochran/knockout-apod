@@ -11,45 +11,52 @@
         <link rel="stylesheet" href="css/main.min.css">
     </head>
     <body>
-        <header>
-            <nav class="menu">
-                <ul class="menu__list">
-                    <li class="menu__item">
-                        <button type="button" 
-                                class="menu__button" 
-                                data-bind="click: getDate.bind($data, prevDate())">Previous</button>
-                    </li>
-                    <li class="menu__item">
-                        <button type="button" 
-                                class="menu__button" 
-                                data-bind="click: getDate.bind($data, nextDate()), enable: nextDate">Next</button>
-                    </li>
-                    <li class="menu__item">
-                        <button type="button"
-                                class="menu__button" 
-                                data-bind="click: getDate.bind($data, latest), enable: nextDate">Latest</button>
-                    </li>
-                    <li class="menu__item">
-                        <button type="button" class="menu__button" data-bind="click: getRandom">Random</button>
-                    </li>
-                </ul>
-            </nav>
-        </header>
+        <div class="wrapper">
+            <header>
+                <nav class="menu">
+                    <ul class="menu__list">
+                        <li class="menu__item">
+                            <button type="button" 
+                                    class="menu__button" 
+                                    data-bind="click: getDate.bind($data, prevDate())">Previous</button>
+                        </li>
+                        <li class="menu__item">
+                            <button type="button" 
+                                    class="menu__button" 
+                                    data-bind="click: getDate.bind($data, nextDate()), enable: nextDate">Next</button>
+                        </li>
+                        <li class="menu__item">
+                            <button type="button"
+                                    class="menu__button" 
+                                    data-bind="click: getDate.bind($data, latest), enable: nextDate">Latest</button>
+                        </li>
+                        <li class="menu__item">
+                            <button type="button" class="menu__button" data-bind="click: getRandom">Random</button>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
 
-        <main role="main">
-        <article class="photo">
-            <h1 class="photo__title" data-bind="text: title"></h1>
-            <div class="photo__date" data-bind="text: prettyDate"></div>
-            <figure class="photo__image">
-                <img src="" alt="" data-bind="attr: { src: url }">
-                <figcaption class="photo__explanation" data-bind="text: explanation"></figcaption>
-            </figure>
-            <footer data-bind="if: copyright"><p><small class="photo__copyright">Copyright <a href="" data-bind="text: copyright"></a>.</small></p></footer>
-        </article>
-        </main>
+            <main role="main" class="main">
+                <div class="loader" data-bind="visible: !dataLoaded()">
+                    <img src="img/ajax-loader.gif" alt="">
+                </div>
+                <article class="photo" data-bind="visible: dataLoaded">
+                    <h1 class="photo__title" data-bind="text: title"></h1>
+                    <div class="photo__date" data-bind="text: prettyDate"></div>
+                    <figure class="photo__image">
+                        <img src="" alt="" data-bind="attr: { src: url }">
+                        <figcaption class="photo__explanation" data-bind="text: explanation"></figcaption>
+                    </figure>
+                    <footer data-bind="if: copyright">
+                        <p><small class="photo__copyright">Copyright <a href="" data-bind="text: copyright"></a>.</small></p>
+                    </footer>
+                </article>
+            </main>
+        
+        </div>
 
-        <footer>
-            <hr>
+        <footer class="footer">
             <a href="https://github.com/joecochran/knockout-apod">View the source for this page on Github</a>
         </footer>
         <script src="js/app.min.js"></script>
