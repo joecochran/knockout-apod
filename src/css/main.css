@@ -118,6 +118,8 @@ a:hover {
   width: 100%;
   height: 100%;
   transition: opacity 1s;
+  background: #fff;
+  display: none;
 }
 .loader__gif {
   position: absolute;

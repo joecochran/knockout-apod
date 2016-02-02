@@ -61,8 +61,8 @@ function ApodViewModel() {
     self.latest = apodDate(new Date());
 
     self.getDate = function(date) {
+        $('.loader').fadeIn('fast');
         self.dataLoaded(false);
-        // 
         $.getJSON('https://api.nasa.gov/planetary/apod?api_key=' + self.key + '&date=' + date, function(data){
             self.url(data.url);
             self.copyright(data.copyright);
@@ -71,9 +71,8 @@ function ApodViewModel() {
             self.title(data.title);
             self.mediaType(data.media_type);
         }).done(function(){
-            setTimeout(function(){
-                self.dataLoaded(true);
-            }, 1000);
+            console.log('successful getJSON!');
+            $('.loader').fadeOut('fast');
         }).fail(function( error ){
             self.hasError(true);
         });
