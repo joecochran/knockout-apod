@@ -51,6 +51,12 @@ function ApodViewModel() {
             return (date < new Date()) ? apodDate(date) : false;
         }
     });
+    self.photoClass = ko.computed(function(){
+        return self.dataLoaded() ? 'photo--visible' : 'photo--hidden';
+    });
+    self.loaderClass = ko.computed(function(){
+        return self.dataLoaded() ? 'loader--hidden' : 'loader--visible';
+    });
     self.latest = apodDate(new Date());
 
     self.getDate = function(date) {
