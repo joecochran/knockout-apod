@@ -31,6 +31,7 @@ function ApodViewModel() {
     self.title = ko.observable();
     self.mediaType = ko.observable();
     self.dataLoaded = ko.observable(false);
+    self.hasError = ko.observable(false);
     
     self.prettyDate = ko.computed(function() {
         if (self.date() instanceof Date) {
@@ -61,16 +62,20 @@ function ApodViewModel() {
 
     self.getDate = function(date) {
         self.dataLoaded(false);
+        // 
         $.getJSON('https://api.nasa.gov/planetary/apod?api_key=' + self.key + '&date=' + date, function(data){
+            self.url(data.url);
             self.copyright(data.copyright);
             self.date( new Date(data.date.split('-').join('/')));
             self.explanation(data.explanation);
-            self.url(data.url);
             self.title(data.title);
             self.mediaType(data.media_type);
+        }).done(function(){
             setTimeout(function(){
                 self.dataLoaded(true);
-            }, 500);
+            }, 1000);
+        }).fail(function( error ){
+            self.hasError(true);
         });
     }
     self.getRandom = function() {
